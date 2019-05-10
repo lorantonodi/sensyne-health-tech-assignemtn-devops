@@ -61,7 +61,7 @@ This will setup terraform to use a remote state file
 - Access the service on the ELB address via http
 
 
-Considerations:
+## Considerations:
 
 Mongo will loose all data if the container is terminated for any reason, a persistent volume should be added if we want to keep the data (outside of AWS free tier) 
 
