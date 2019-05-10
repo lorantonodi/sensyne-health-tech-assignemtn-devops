@@ -67,7 +67,9 @@ Mongo will loose all data if the container is terminated for any reason, a persi
 
 Mongo does not have a password, this is bad practice, however it is only accessible from inside the cluster.
 
-Adding the mongo DB address manually to the flask-app-deployment is not an optimal solution, this should be automated
+Adding the mongo DB address manually to the flask-app-deployment is not an optimal solution, this should be automated.
+
+The cluster was deployed to be in public subnets, to make it more secure, the worker nodes should be deployed to private subnets and the API should be only accessible from the private subnets via a bastion host.
 
 Whoever created this tech assigment, did not bothered to check if it is possible to do it using only AWS free tier resources considering the fact that if you don't use EKS, the minimum recommended ec2 instance size for master nodes are m3.medium. If you use normal t2.micro (the only free tier) instance as worker nodes, nothing can be scheduled on them, since the instance has only 1 GB of memory. EKS is outside free tier.
 
