@@ -17,7 +17,7 @@ We believe in `infrastructure as code` and automation of deployments. We would l
 - Setup 2FA for your root user
 - Setup a new IAM user with Programmatic access and AWS Management Console access (admin access)
 - Setup 2FA for the new user
-- Download and install AWS CLI and terraform and setup AWS access keys
+- Download and install AWS CLI and terraform (v0.11.3) and setup AWS access keys
 - Create an S3 bucket to store the terraform remote state (since it's an s3 bucket the name must be unique) in eu-west-1
 - Run the following command in the aws_account/vpc directory:
 
@@ -26,3 +26,12 @@ We believe in `infrastructure as code` and automation of deployments. We would l
 This will setup terraform to use a remote state file
 
 - Run `terraform plan` and `terraform apply` in the aws_account/vpc directory
+
+- Run the following command in the aws_account/dns directory:
+
+`terraform init  -backend=true -backend-config="bucket=sensyne-health-tech-assignment-devops" -backend-config="key=dns/terraform.tfstate" -backend-config="region=eu-west-1" -reconfigure -get=true -get-plugins=true -force-copy=true -input=false`
+
+- Run `terraform plan` and `terraform apply` in the aws_account/dns directory
+
+- Download kubectl and kops and install them
+
