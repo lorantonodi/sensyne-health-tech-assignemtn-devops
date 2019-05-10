@@ -33,5 +33,11 @@ This will setup terraform to use a remote state file
 
 - Run `terraform plan` and `terraform apply` in the aws_account/dns directory
 
-- Download kubectl and kops and install them
+- Run the following command in the aws_account/eks directory:
+
+`terraform init  -backend=true -backend-config="bucket=sensyne-health-tech-assignment-devops" -backend-config="key=eks/terraform.tfstate" -backend-config="region=eu-west-1" -reconfigure -get=true -get-plugins=true -force-copy=true -input=false`
+
+- Run `terraform plan` and `terraform apply` in the aws_account/eks directory
+
+
 
